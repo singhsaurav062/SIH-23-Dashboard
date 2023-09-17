@@ -45,3 +45,20 @@ document.querySelectorAll('.not-complete-button').forEach(notCompleteButton => {
         handleButtonClick(notCompleteButton, false);
     });
 });
+
+
+//pop-box
+const popup = document.getElementById('popup');
+const projectDetails = document.getElementById('project-details');
+const popupClose = document.getElementById('popup-close');
+
+const openPopup = () => {
+  popup.style.display = 'block';
+};
+
+const closePopup = () => {
+  popup.style.display = 'none';
+};
+
+projectDetails.addEventListener('click', openPopup);
+popupClose.addEventListener('click', closePopup);
