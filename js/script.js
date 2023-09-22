@@ -48,17 +48,24 @@ document.querySelectorAll('.not-complete-button').forEach(notCompleteButton => {
 
 
 //pop-box
-const popup = document.getElementById('popup');
-const projectDetails = document.getElementById('project-details');
-const popupClose = document.getElementById('popup-close');
+// Get all project details elements by class name
+const projectDetailsList = document.querySelectorAll('.extreme');
 
-const openPopup = () => {
-  popup.style.display = 'block';
-};
+// Loop through each project details element
+projectDetailsList.forEach((projectDetails, index) => {
+  // Generate unique IDs for each popup and popup close element
+  const popup = document.getElementById(`popup-${index + 1}`);
+  const popupClose = document.getElementById(`popup-close-${index + 1}`);
 
-const closePopup = () => {
-  popup.style.display = 'none';
-};
+  // Add a click event listener to open the popup
+  projectDetails.addEventListener('click', () => {
+    console.log(`Clicked project details ${index + 1}`);
+    popup.style.display = 'block';
+  });
 
-projectDetails.addEventListener('click', openPopup);
-popupClose.addEventListener('click', closePopup);
+  // Add a click event listener to close the popup
+  popupClose.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+});
+
